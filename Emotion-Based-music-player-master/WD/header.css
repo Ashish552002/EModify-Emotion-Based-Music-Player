@@ -1,0 +1,57 @@
+#ffirst {
+    width: 97.1%;
+    height: 30px;
+    position: fixed;
+    padding: 20px;
+    top: 0;
+    margin-left: 0;
+    display: flex;
+    justify-content: space-between; /* Distribute space between the elements */
+    align-items: center; /* Vertically center elements */
+    background-size: 100% 50%;
+    background-color: black;
+
+}
+
+#homeLink {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+#homeLink:hover {
+    color: #f1c40f; /* Yellow on hover */
+
+}
+
+#next{
+		border-color: rgba(1,1,1,0.5);
+		background:transparent url("next.png");
+		/*mix-blend-mode: multiply;*/
+		background-size: cover;
+		border-bottom-left-radius: 50%;
+		border-top-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		border-top-right-radius: 50%;
+		height: 40px;
+		width: 40px;
+		margin-left: 20px;
+		margin-top: 0px;
+		z-index: 2;
+	}
+	#next:focus{
+		outline: none;
+	}
+	#next:hover{
+		box-shadow: 0px 0px 5px 5px white;
+		border-color: black;
+		background-color: rgba(1,1,1);
+		border-bottom-left-radius: 50%;
+		border-top-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		border-top-right-radius: 50%;
+		z-index: 2;
+		
+	}
