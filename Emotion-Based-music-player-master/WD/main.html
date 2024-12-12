@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <meta charset="UTF-8"> 
+	 <meta charset="UTF-8">
 	<title>musical Arena</title>
 	<script type="text/javascript" src="/eel.js"></script>
 	<link rel="stylesheet" type="text/css" href="header.css">
@@ -11,6 +11,46 @@
 	body{
 		margin: 0;
 	}
+	#lyricsContent{
+	color: white;
+	}
+
+		.search-bar-container {
+			margin-top: 20px;
+			text-align: center;
+		}
+		.search-bar {
+			padding: 10px;
+			width: 300px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+		.search-btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			background-color: #1DB954; /* Spotify green */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		.search-btnn {
+			padding: 10px 20px;
+			font-size: 16px;
+
+			background-color: #1DB954; /* Spotify green */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+		.search-btn:hover {
+			background-color: #1ed760; /* Lighter green on hover */
+		}
+
 	</style>
 </head>
 <body>
@@ -29,11 +69,28 @@
 </div>
 
 
+	<br>
+	<div class="search-bar-container">
+		<input type="text" id="songInput" class="search-bar" placeholder="Enter song name">
+		<button class="search-btn" onclick="searchSpotify()">Search</button>
+		<button class="search-btn" onclick="refreshPage()">Refresh</button>
+        <button class="search-btnn" onclick="toggleLyrics()">Show Lyrics</button>
+	</div>
+
+
+
+
+	<div id="lyrics" style="margin: 20px; width: 25%; height: 186px; padding: 10px; border: 1px solid #ccc;
+	 background: black; font-size: 16px ;border-radius: 10px; overflow: auto;position: absolute; top: 20px; right: 0; margin-top: 200px;opacity: 0.4;">
+    <h3 style="color: white">Lyrics</h3>
+    <p id="lyricsContent">No lyrics available</p>
+</div>
+	
+
 
 	<script src="code.js"></script>
 
 		<div id="queue"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Queue<input type="button" id="next" onclick="nextsong()"><hr></div>
-
 
 
 
@@ -42,7 +99,7 @@
 		<div id="xyz">
 		&nbsp;&nbsp;&nbsp;Playing :&nbsp;&nbsp;
 		<label id="sname" align="center">none</label></div>
-		<div id="mod">mode : Queue-mode <input type="radio" name="mode" checked="checked" onclick="setmod(this)" value="1"> &nbsp;&nbsp;Emotion-mode <input type="radio" name="mode" onclick="setmod(this)" value="2"> &nbsp;&nbsp;Random-mode 
+		<div id="mod">mode : Queue-mode <input type="radio" name="mode" checked="checked" onclick="setmod(this)" value="1"> &nbsp;&nbsp;Emotion-mode <input type="radio" name="mode" onclick="setmod(this)" value="2"> &nbsp;&nbsp;Random-mode
 			<input type="radio" name="mode" onclick="setmod(this)" value="3"></div>
 		<audio controls id="main_slider">
   		<source id="sel"  type="audio/mpeg">
@@ -60,8 +117,18 @@ Your browser does not support the audio element.
 			rand_play();
 
 	};
+	function toggleLyrics() {
+    const lyricsDiv = document.getElementById("lyrics");
+    if (lyricsDiv.style.display === "none") {
+        lyricsDiv.style.display = "block"; // Show the lyrics div
+    } else {
+        lyricsDiv.style.display = "none"; // Hide the lyrics div
+    }
+}
 
-
+  function refreshPage() {
+        location.reload(); // Simulates the Ctrl + R behavior
+    }
 		</script>
 		</div>
 		</body>

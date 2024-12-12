@@ -214,3 +214,66 @@ async function getTime() {
             }
 
 
+function searchSpotify() {
+				// Get the input value (song name)
+				var song = document.getElementById("songInput").value.trim();
+
+				// If the input is empty, show an alert
+				if (song === "") {
+					alert("Please enter a song name.");
+					return;
+				}
+
+				// Encode the song name to ensure it works in the URL
+				var encodedSong = encodeURIComponent(song);
+
+				// Open the Spotify search page with the song query
+				var spotifySearchUrl = "https://open.spotify.com/search/" + encodedSong;
+
+				// Redirect to Spotify search results
+				window.open(spotifySearchUrl, "_blank");
+			}
+
+
+	// Lyrics associated with the songs
+var lyrics = [
+    "Jee Karda lyrics: Chalni kar de seena mera Chalni kar de seena mera Chalni kar de seena meraDaag saari goliyan ni ajj mera jee karda Marjaneya ni aaj mera jee karda Marjaneya ni mera jee karda Marjaneya ni aaj mera jee karda Mushqil kar de jeena meraMushqil kar de jeena meraMushqil kar de jeena meraHanste hanste mit jaaneya ni mera jee kardaMarjaneya ni ajj mera jee karda",
+
+    "Aarambh lyrics: Aarambh hai prachand, bol mastako ke jhund...",
+    "Mila Toh Marega lyrics: Yeh dil ka dard, samajh le yaar...",
+    "Haareya lyrics: Haareya main dil haareya...",
+    "Ik vari aa lyrics: Ik vari aa, meri jaan meri jaan...",
+    "Main Jahaan Rahoon lyrics: Main jahaan rahoon, tere saath mein...",
+    "Aayat lyrics: Ang Laga De Re, Mohe Rang Laga De Re...",
+    "Humdard lyrics: Teri dard hai meri dua...",
+    "O Sathi lyrics: O sathi tere bina, rahe na jina...",
+    "Phir Bhi lyrics: Phir bhi tumko chaahunga..."
+];
+
+// Modify the play function to show lyrics
+function play(elem) {
+    console.log(elem.id);
+    var x = elem.id.charAt(1);
+    var z = songs[x][0];
+    document.getElementById("sname").innerHTML = sname[x];
+    document.getElementById("sel").src = z;
+    document.getElementById("main_slider").load();
+    document.getElementById("main_slider").play();
+    document.getElementById("emoji").style.backgroundImage = "url('" + songs[x][3] + "')";
+    songrun = true;
+
+    // Display lyrics
+    var lyricsDiv = document.getElementById("lyrics");
+    var lyricsContent = document.getElementById("lyricsContent");
+
+    if (lyrics[x]) {
+        lyricsContent.innerHTML = lyrics[x];
+        lyricsDiv.style.display = "block"; // Show the lyrics div
+    } else {
+        lyricsContent.innerHTML = "No lyrics available for this song.";
+        lyricsDiv.style.display = "block"; // Show the div with a message
+    }
+}
+
+
+
